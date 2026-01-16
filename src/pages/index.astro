@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Magický příkaz, který najde všechny .md soubory ve složce projects
+const allProjects = await Astro.glob('../projects/*.md');
+
+// Seřadíme je podle čísla "order", které jsme si vymysleli v souborech
+const projects = allProjects.sort((a, b) => a.frontmatter.order - b.frontmatter.order);
+---
+
+<Layout title="Moje Projekty">
+	<h1>Moje Portfolio</h1>
+    <p>Vítejte. Tady odkládám projekty, které jsem vytvořil, aby mi usnadnily život, a abych se něco nového naučil.</p>
+    <hr style="border-color: #333; margin: 2rem 0;">
+
+    {projects.map((project) => (
+        <div class="project-card">
+            <h2>{project.frontmatter.title}</h2>
+            <p><strong>{project.frontmatter.description}</strong></p>
+            
+            <div class="content-body">
+                <project.Content />
+            </div>
+
+            <div class="tech-stack">Technologie: {project.frontmatter.tech}</div>
+        </div>
+    ))}
+</Layout>
+
+<style>
+    /* Malá úprava stylů pro text uvnitř Markdownu */
+    .content-body {
+        margin-top: 1rem;
+        color: #b0b0b0;
+    }
+    .content-body :global(strong) {
+        color: white;
+    }
+    .content-body :global(ul) {
+        padding-left: 1.5rem;
+    }
+</style>
