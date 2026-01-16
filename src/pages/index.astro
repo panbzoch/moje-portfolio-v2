@@ -23,7 +23,14 @@ const projects = allProjects.sort((a, b) => a.frontmatter.order - b.frontmatter.
             </div>
 
             <div class="tech-stack">Technologie: {project.frontmatter.tech}</div>
-        </div>
+            {project.frontmatter.link && (
+                <div class="links">
+                    <a href={project.frontmatter.link} target="_blank" class="btn">
+                        Podívat se na projekt →
+                    </a>
+                </div>
+            )}
+             </div>
     ))}
 </Layout>
 
@@ -38,5 +45,22 @@ const projects = allProjects.sort((a, b) => a.frontmatter.order - b.frontmatter.
     }
     .content-body :global(ul) {
         padding-left: 1.5rem;
+    }
+    .links {
+        margin-top: 1.5rem;
+    }
+    .btn {
+        background: #333;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        border: 1px solid #555;
+        transition: background 0.2s;
+        display: inline-block; /* Aby to drželo tvar */
+    }
+    .btn:hover {
+        background: #555;
     }
 </style>

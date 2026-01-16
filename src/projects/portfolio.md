@@ -1,5 +1,5 @@
 ---
-title: "Osobní Dev Portfolio"
+title: "Portfolio Projektů"
 description: "Moderní statický web pro prezentaci projektů s CI/CD pipeline."
 tech: "Astro, Markdown, GitHub Actions, StackBlitz"
 order: 4
