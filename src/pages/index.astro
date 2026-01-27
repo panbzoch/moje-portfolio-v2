@@ -22,14 +22,22 @@ const projects = allProjects.sort((a, b) => a.frontmatter.order - b.frontmatter.
                 <project.Content />
             </div>
 
-            {/* Zobrazení obrázku (pokud existuje) */}
-            {project.frontmatter.image && (
-                <div class="project-image-container">
-                    <img 
-                        src={project.frontmatter.image} 
-                        alt={`Náhled ${project.frontmatter.title}`} 
-                        loading="lazy"
-                    />
+            {project.frontmatter.images && (
+                <div class="gallery">
+                    {project.frontmatter.images.map((img) => (
+                        <div class="gallery-item">
+                            <img src={img} alt="Náhled projektu" loading="lazy" />
+                        </div>
+                    ))}
+                </div>
+            )}
+            
+            {/* Záchrana pro staré projekty, kde máš pořád jen "image" */}
+            {project.frontmatter.image && !project.frontmatter.images && (
+                 <div class="gallery single">
+                    <div class="gallery-item">
+                        <img src={project.frontmatter.image} alt="Náhled projektu" loading="lazy" />
+                    </div>
                 </div>
             )}
 
@@ -60,18 +68,41 @@ const projects = allProjects.sort((a, b) => a.frontmatter.order - b.frontmatter.
         padding-left: 1.5rem;
     }
 
-    /* Styly pro obrázky */
-    .project-image-container {
+    /* Galerie - mřížka */
+    .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dva sloupce vedle sebe */
+        gap: 1rem; /* Mezera mezi obrázky */
         margin-top: 1.5rem;
+        max-width: 800px; /* Celková šířka galerie */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Pokud je tam jen jeden obrázek (třída single), roztáhni ho */
+    .gallery.single {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .gallery-item {
         border-radius: 8px;
         overflow: hidden;
         border: 1px solid #333;
     }
-    .project-image-container img {
+
+    .gallery-item img {
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover; /* Zajistí, že obrázky budou stejně vysoké */
         display: block;
-        object-fit: cover;
+    }
+
+    /* Na mobilu to chceme pod sebou, jinak budou prťavé */
+    @media (max-width: 600px) {
+        .gallery {
+            grid-template-columns: 1fr; 
+        }
     }
 
     /* Styly pro tlačítka */

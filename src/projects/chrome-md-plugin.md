@@ -3,6 +3,9 @@ title: "Chrome Plugin: Markdown Generator"
 description: "Chytrý extraktor webového obsahu s automatizovaným ukládáním do Obsidianu."
 tech: "JavaScript (Manifest V3), Readability.js, Turndown.js, Chrome Downloads API, Windows Junction (mklink)."
 order: 1
+images: 
+  - "/moje-portfolio-v2/images/MDclosed.png"
+  - "/moje-portfolio-v2/images/MDopen.png"
 ---
 **Jak to funguje:**
 
