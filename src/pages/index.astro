@@ -1,16 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Magický příkaz, který najde všechny .md soubory ve složce projects
+// Načtení všech markdown souborů ze složky projects
 const allProjects = await Astro.glob('../projects/*.md');
 
-// Seřadíme je podle čísla "order", které jsme si vymysleli v souborech
+// Seřazení podle "order"
 const projects = allProjects.sort((a, b) => a.frontmatter.order - b.frontmatter.order);
 ---
 
 <Layout title="Moje Projekty">
 	<h1>Moje Portfolio</h1>
-    <p>Vítejte. Tady odkládám projekty, které jsem vytvořil, aby mi usnadnily život, a abych se něco nového naučil.</p>
+    <p>Vítejte. Tady odkládám věci, které jsem vytvořil, aby mi usnadnily život.</p>
     <hr style="border-color: #333; margin: 2rem 0;">
 
     {projects.map((project) => (
@@ -22,7 +22,20 @@ const projects = allProjects.sort((a, b) => a.frontmatter.order - b.frontmatter.
                 <project.Content />
             </div>
 
+            {/* Zobrazení obrázku (pokud existuje) */}
+            {project.frontmatter.image && (
+                <div class="project-image-container">
+                    <img 
+                        src={project.frontmatter.image} 
+                        alt={`Náhled ${project.frontmatter.title}`} 
+                        loading="lazy"
+                    />
+                </div>
+            )}
+
             <div class="tech-stack">Technologie: {project.frontmatter.tech}</div>
+
+            {/* Zobrazení tlačítka s odkazem (pokud existuje) */}
             {project.frontmatter.link && (
                 <div class="links">
                     <a href={project.frontmatter.link} target="_blank" class="btn">
@@ -30,12 +43,12 @@ const projects = allProjects.sort((a, b) => a.frontmatter.order - b.frontmatter.
                     </a>
                 </div>
             )}
-             </div>
+
+        </div>
     ))}
 </Layout>
 
 <style>
-    /* Malá úprava stylů pro text uvnitř Markdownu */
     .content-body {
         margin-top: 1rem;
         color: #b0b0b0;
@@ -46,6 +59,22 @@ const projects = allProjects.sort((a, b) => a.frontmatter.order - b.frontmatter.
     .content-body :global(ul) {
         padding-left: 1.5rem;
     }
+
+    /* Styly pro obrázky */
+    .project-image-container {
+        margin-top: 1.5rem;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #333;
+    }
+    .project-image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    /* Styly pro tlačítka */
     .links {
         margin-top: 1.5rem;
     }
@@ -58,7 +87,7 @@ const projects = allProjects.sort((a, b) => a.frontmatter.order - b.frontmatter.
         font-weight: bold;
         border: 1px solid #555;
         transition: background 0.2s;
-        display: inline-block; /* Aby to drželo tvar */
+        display: inline-block;
     }
     .btn:hover {
         background: #555;
