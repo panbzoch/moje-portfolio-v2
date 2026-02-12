@@ -4,7 +4,7 @@ description: "Inteligentní Telegram bot, který funguje jako externí paměť p
 tech: "Python, Groq API (LLM Llama 3.3-70b & Audio model Whisper Large v3), Telegram Bot API, JSON databáze, GitHub Codespaces."
 Order: 5
 images: 
-  - "/moje-portfolio-v2/public/images/AlchHammerTXT.png"
+  - "/moje-portfolio-v2/images/AlchHammerTXT.png"
   - "/moje-portfolio-v2/images/AlchHammerVOICE.png"
 ---
 **Jak to funguje:**
