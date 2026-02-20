@@ -1,7 +1,7 @@
 ---
 title: "AI Osobní Skladník: Hlasový Asistent"
 description: "Inteligentní Telegram bot, který funguje jako externí paměť pro domácí inventář a umožňuje ukládat i vyhledávat předměty pomocí hlasu a přirozeného jazyka."
-tech: "Python, Groq API (LLM Llama 3.3-70b & Audio model Whisper Large v3), Telegram Bot API, JSON databáze, GitHub Codespaces."
+tech: "Python, Groq API (LLM Llama 3.3-70b & Audio model Whisper Large v3), Telegram Bot API, JSON databáze, Railway cloud."
 Order: 5
 images: 
   - "/moje-portfolio-v2/images/AlchHammerTXT.png"
