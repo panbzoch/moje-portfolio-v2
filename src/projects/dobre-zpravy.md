@@ -1,7 +1,7 @@
 ---
 title: "Dobré Zprávy: AI Agregátor"
 description: "Plně automatizovaný webový portál, který pomocí umělé inteligence vyhledává, filtruje a publikuje pouze pozitivní zprávy z českého internetu."
-tech: "Python, Groq API (model Llama 3.3-70b), GitHub Actions (CI/CD), GitHub Pages, RSS (feedparser), Jinja2, HTML/CSS/JS."
+tech: "Python, OpenRouter API (model openai/gpt-oss-120b:free), GitHub Actions (CI/CD), GitHub Pages, RSS (feedparser), Jinja2, HTML/CSS/JS."
 order: 3
 link: "https://panbzoch.github.io/dobre-zpravy/"
 ---
