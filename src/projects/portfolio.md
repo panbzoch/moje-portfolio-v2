@@ -2,7 +2,7 @@
 title: "Portfolio Projektů"
 description: "Moderní statický web pro prezentaci projektů s CI/CD pipeline."
 tech: "Astro, Markdown, GitHub Actions, StackBlitz"
-order: 4
+order: 7
 ---
 Tento web sám o sobě je technickým projektem. Cílem bylo vytvořit bleskurychlé, bezúdržbové řešení, kde je obsah striktně oddělen od kódu.
 

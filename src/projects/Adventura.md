@@ -2,7 +2,7 @@
 title: "AI Textová Adventura: Interaktivní RPG Bot"
 description: "Inteligentní Telegram bot, který simuluje textovou RPG hru a procedurálně generuje dynamický herní svět s vlastním vizuálem a logickými pravidly."
 tech: "Python, Groq API (LLM Llama 3.3-70b & Audio model Whisper), Fireworks API (Image model Flux.1 [schnell]), Telegram Bot API, JSON databáze, Railway cloud, GitHub."
-Order: 6
+Order: 4
 images: 
   - "/moje-portfolio-v2/images/Adventura1.png"
   - "/moje-portfolio-v2/images/Adventura2.png"
